@@ -169,6 +169,7 @@ function exportPDF(client, metrics, meals, shop, gc) {
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Source+Sans+3:wght@400;600;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Source Sans 3',sans-serif;color:#1a1a1a;background:#fff}
+.gym-info{font-size:11px;opacity:0.75;margin-top:6px;line-height:1.7}
 .cover{background:linear-gradient(135deg,#B71C1C,#E53935);color:#fff;padding:40px 48px 36px;display:flex;align-items:center;gap:28px}
 .cover img{width:80px;height:80px;border-radius:12px;object-fit:cover;background:#fff;padding:4px}
 .cover h1{font-family:'Oswald',sans-serif;font-size:38px;letter-spacing:1px;line-height:1}
@@ -203,6 +204,7 @@ tr:nth-child(even) td{background:#fafafa}
   <img src="${LOGO_URI}" alt="Step2 Fitness"/>
   <div>
     <p class="sub">STEP2 FITNESS GYM — CHENNAI</p>
+    <div class="gym-info">📍 3B, Sri Devikuppam, Suresh Nagar Main Rd, Radha Avenue,<br/>Valasaravakkam, Chennai, Tamil Nadu 600087<br/>🕐 Open · Closes 10 PM &nbsp;|&nbsp; 📞 099624 44002</div>
     <h1>${client.name}</h1>
     <div class="badges">
       <span class="goal-badge">${gc.icon} ${client.goal}</span>
@@ -258,8 +260,10 @@ tr:nth-child(even) td{background:#fafafa}
 </div>
 
 <div class="footer">
-  <b>STEP2 FITNESS GYM</b> &nbsp;•&nbsp; Chennai &nbsp;•&nbsp; <i>GET A JUMP ON YOUR DAY</i><br/>
-  Personalized plan for ${client.name} &nbsp;•&nbsp; Generated ${new Date().toLocaleDateString("en-IN", { day: "2-digit", month: "long", year: "numeric" })}
+  <b>STEP2 FITNESS GYM</b> &nbsp;•&nbsp; <i>GET A JUMP ON YOUR DAY</i><br/>
+  📍 3B, Sri Devikuppam, Suresh Nagar Main Rd, Radha Avenue, Valasaravakkam, Chennai, Tamil Nadu 600087<br/>
+  🕐 Open · Closes 10 PM &nbsp;|&nbsp; 📞 <b style="color:#E53935">099624 44002</b><br/>
+  <span style="opacity:0.6">Personalized plan for ${client.name} &nbsp;•&nbsp; Generated ${new Date().toLocaleDateString("en-IN", { day: "2-digit", month: "long", year: "numeric" })}</span>
 </div>
 <script>window.onload=()=>window.print()</script>
 </body></html>`);
