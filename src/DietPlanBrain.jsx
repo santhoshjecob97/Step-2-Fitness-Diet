@@ -222,13 +222,13 @@ tr:nth-child(even) td{background:#fafafa}
 </div>
 
 <div class="section">
-  <h2>📊 Daily Macro Targets</h2>
+  <h2>📊 Daily Macro Targets &nbsp;<span style="font-size:13px;font-weight:500;opacity:0.7">PRO: ${metrics.protein}g &nbsp;|&nbsp; CARB: ${metrics.carbs}g &nbsp;|&nbsp; FAT: ${metrics.fat}g &nbsp;|&nbsp; TARGET: ${metrics.targetCal} kcal</span></h2>
   <div class="macros">
     <div class="macro-card"><div class="mv">${metrics.protein}g</div><div class="ml">🥩 Protein / day</div></div>
     <div class="macro-card"><div class="mv">${metrics.carbs}g</div><div class="ml">🌾 Carbs / day</div></div>
     <div class="macro-card"><div class="mv">${metrics.fat}g</div><div class="ml">🥑 Fat / day</div></div>
   </div>
-  <h2>🍽️ Daily Meal Plan</h2>
+  <h2>🍽️ Daily Meal Plan &nbsp;<span style="font-size:13px;font-weight:500;opacity:0.7">${meals.length} Meals &nbsp;|&nbsp; ${totalCal} kcal/day &nbsp;|&nbsp; BMI: ${metrics.bmi} (${metrics.bmiLabel})</span></h2>
   <table>
     <tr><th>Time</th><th>Meal</th><th>Foods (Chennai)</th><th>Cal</th><th>Protein</th><th>Carbs</th><th>Fat</th></tr>
     ${meals.map(m => `<tr><td><b>${m.time}</b></td><td><b>${m.name}</b></td><td>${m.foods}</td><td style="text-align:center;font-weight:700">${m.cal}</td><td style="text-align:center">${m.p}g</td><td style="text-align:center">${m.c}g</td><td style="text-align:center">${m.f}g</td></tr>`).join("")}
@@ -237,7 +237,7 @@ tr:nth-child(even) td{background:#fafafa}
 </div>
 
 <div class="section">
-  <h2>📅 7-Day Training Schedule</h2>
+  <h2>📅 7-Day Training Schedule &nbsp;<span style="font-size:13px;font-weight:500;opacity:0.7">Goal: ${client.goal} &nbsp;|&nbsp; Act. Level: ${client.activity} &nbsp;|&nbsp; TDEE: ${metrics.tdee} kcal</span></h2>
   <table>
     <tr><th>Day</th><th>Training</th><th>Diet Note</th></tr>
     ${DAYS.map((d, i) => { const w = (WORKOUT[client.goal] || WORKOUT.Maintenance)[i]; return `<tr><td><b>${d}</b></td><td>${w}</td><td>${w.toLowerCase().includes("rest") ? "Light meals, recovery focus" : "Follow daily meal plan"}</td></tr>` }).join("")}
@@ -245,14 +245,14 @@ tr:nth-child(even) td{background:#fafafa}
 </div>
 
 <div class="section">
-  <h2>🛒 Weekly Shopping List — Chennai Market</h2>
+  <h2>🛒 Weekly Shopping List &nbsp;<span style="font-size:13px;font-weight:500;opacity:0.7">${shop.length} Categories &nbsp;|&nbsp; Chennai Mkt &nbsp;|&nbsp; ${client.vegetarian === 'Yes' ? '🥦 Veg Plan' : '🍗 Non-Veg Plan'}</span></h2>
   <div class="shop-grid">
     ${shop.map(s => `<div class="shop-card"><div class="shop-cat">${s.cat}</div><div style="font-size:12px;color:#444">${s.items}</div><div style="font-size:11px;color:#888;margin-top:4px">Qty: ${s.qty} &nbsp;|&nbsp; ${s.cost}</div></div>`).join("")}
   </div>
 </div>
 
 <div class="section">
-  <h2>📈 3-Month Progress Targets</h2>
+  <h2>📈 3-Month Progress Targets &nbsp;<span style="font-size:13px;font-weight:500;opacity:0.7">Start Wt: ${client.weight}kg &nbsp;|&nbsp; BMI: ${metrics.bmi} &nbsp;|&nbsp; H2O: ${metrics.water}L/day</span></h2>
   <table>
     <tr><th>Month</th><th>Weight Target</th><th>Key Focus</th><th>Trainer Check-In</th></tr>
     ${["Month 1", "Month 2", "Month 3"].map((m, i) => `<tr><td><b>${m}</b></td><td>${client.goal === "Weight Loss" || client.goal === "Fat Loss + Tone" ? client.weight - (i + 1) * 3 + " kg" : "Reassess with trainer"}</td><td>${["Build habit & consistency", "Increase intensity & load", "Maintain and fine-tune"][i]}</td><td>Week ${(i + 1) * 4}</td></tr>`).join("")}
